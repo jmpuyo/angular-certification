@@ -6,15 +6,16 @@ import { AppComponent } from './app.component';
 import { MainFormComponent } from './components/main-form/main-form.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainFormComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        MainFormComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
