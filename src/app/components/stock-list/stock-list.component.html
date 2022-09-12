@@ -1,0 +1,6 @@
+<ng-container *ngIf="isLoading">
+    <app-loading></app-loading>
+</ng-container>
+<ng-container *ngIf="!isLoading && quotes.length > 0">
+    <app-quote-card [quotes]="quotes"></app-quote-card>
+</ng-container>

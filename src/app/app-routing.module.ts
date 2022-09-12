@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainFormComponent } from './components/main-form/main-form.component';
+import { MainComponent } from './components/main/main.component';
+import { SentimentComponent } from './components/sentiment/sentiment.component';
 
 const routes: Routes = [
-  { path: '', component: MainFormComponent }
+    { path: '', component: MainComponent },
+    { path: 'sentiment/:symbol', component: SentimentComponent },
+    { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

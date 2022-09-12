@@ -1,0 +1,27 @@
+<div class="col h2 text-center mt-2">Stock Tracker</div>
+<ng-container *ngIf="isLoading">
+    <app-loading></app-loading>
+</ng-container>
+<ng-container *ngIf="!isLoading">
+    <div class="col mb-4">
+        <div class="card">
+            <h5 class="card-header">{{stock.description}} ({{stock.symbol}})</h5>
+            <div class="row">
+                <div class="col-4 p-3 d-inline-block" *ngFor="let s of sentiment">
+                    <div class="row">
+                        <div class="col-auto ps-5">
+                            <div class="h3">{{s.month | monthTranslate}}</div>
+                            <div class="col"><b>Change:</b> {{s.change}}</div>
+                            <div class="col"><b>MSPR:</b> {{s.mspr}}</div>
+                        </div>
+                        <div class="col pt-4">
+                            <fa-icon [icon]="faArrowUp" class="text-success" size="3x" *ngIf="s.change > 0"></fa-icon>
+                            <fa-icon [icon]="faArrowDown" class="text-danger" size="3x" *ngIf="s.change < 0"></fa-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<a routerLink=".." class="link-primary mt-3">< Back to list of stocks</a>

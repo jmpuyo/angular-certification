@@ -1,0 +1,21 @@
+<div class="col border mb-4">
+    <form class="row" [formGroup]="stockTrackForm" (ngSubmit)="onSubmit()">
+        <div class="col-auto mb-3 ms-2 mt-2">
+            <label for="stockCode" class="form-label">Enter the symbol of a stock to track (i.e. APPL, TSLA,
+                GOOGL)</label>
+            <input type="text" class="form-control" id="stockCode" aria-describedby="stockCodeHelp" formControlName="stockCode" [ngClass]="{ 'is-invalid': submitted && stockTrackForm.controls.stockCode.errors }">
+            <div class="invalid-feedback" *ngIf="stockTrackForm.controls.stockCode.errors?.maxlength">
+                Length can't be more than 5 Characters
+            </div>
+            <div class="invalid-feedback" *ngIf="stockTrackForm.controls.stockCode.errors?.required">
+                A code is required
+            </div>
+            <div id="stockCodeHelp" class="form-text">The symbol of a stock should only contain between 1-5
+                letters
+            </div>
+        </div>
+        <div class="col-auto mt-4 pt-3">
+            <button type="submit" [disabled]="isLoading" class="btn btn-primary mb-3"><fa-icon [icon]="faSpinner" [spin]="true" *ngIf="isLoading"></fa-icon> Track Stock</button>
+        </div>
+    </form>
+</div>
